@@ -64,7 +64,6 @@ This installs the following things:
 - Node.JS LTS
 - ngrok (installs in ~/.local/bin)
 - eslint
-- The heroku command line
 - Generates an ssh key, it will be in ~/.ssh/id_ed25519.pub
 - Sets VSCODE to be your default editor.
 - Configures git username, email and sets `git pull` to do a rebase
