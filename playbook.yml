@@ -4,7 +4,7 @@
   gather_facts: yes
   vars:
     asdf_user: "{{ ansible_user_id }}"
-    wanted_node_version: "16"
+    wanted_node_version: "18"
   connection: local
   tasks: 
     - name: Distribution
