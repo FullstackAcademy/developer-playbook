@@ -23,10 +23,10 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - unzip
-    - zip
+    # - unzip
+    # - zip
     - grc
     - pgcli
-    - htop
+    # - htop
   when: 
     - item not in brews.stdout_lines

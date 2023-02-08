@@ -18,24 +18,24 @@
     owner: root
     group: admin
   when: ansible_distribution|lower == 'macosx'
-- name: Install starship prompt
-  become: yes
-  shell: 
-    cmd: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
-    creates: /usr/local/bin/starship
+# - name: Install starship prompt
+#   become: yes
+#   shell: 
+#     cmd: sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- -y
+#     creates: /usr/local/bin/starship
 - name: Set EDITOR Environment variable
   blockinfile: 
     marker: "### {mark} SET VSCODE TO BE THE DEFAULT EDITOR"
     dest: ~/.zshrc
     block: |
       export EDITOR="code -w"
-- name: Add starship to zshrc
-  blockinfile:
-    marker: "### {mark} Initialize Starship Prompt"
-    mode: 0644
-    path: ~/.zshrc
-    create: yes
-    block: eval "$(starship init zsh)"
+# - name: Add starship to zshrc
+#   blockinfile:
+#     marker: "### {mark} Initialize Starship Prompt"
+#     mode: 0644
+#     path: ~/.zshrc
+#     create: yes
+#     block: eval "$(starship init zsh)"
 - name: Create ~/.local/bin
   file: 
     path: ~/.local/bin
