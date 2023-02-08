@@ -1,7 +1,7 @@
 - name: Install postgresql using homebrew
   community.general.homebrew:
     update_homebrew: yes
-    name: postgres
+    name: postgresql
     state: present
 - name: Start postgresl
   command: brew services start postgresql
