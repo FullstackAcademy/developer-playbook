@@ -42,7 +42,3 @@
 - name: Print Node version
   debug: 
     msg: "{{ npm_path.stdout }}"    
-# - name: install eslint globally
-#   command: 
-#     cmd: bash -c '. ~/.nvm/nvm.sh; nvm use --silent default; npm install -g eslint'
-#     creates: "~/.nvm/versions/node/{{node_version.stdout}}/bin/eslint"
