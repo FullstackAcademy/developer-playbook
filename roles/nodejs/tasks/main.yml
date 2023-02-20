@@ -37,7 +37,7 @@
     cmd: bash -c '. ~/.nvm/nvm.sh; nvm use --silent default; which npm'
   register: npm_path
 - name: Add node and npm to path
-  command: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
+  shell: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
 - name: Add the path to .bashrc 
   lineinfile:
     dest: ~/.zshrc
