@@ -1,10 +1,10 @@
-- name: Install postgresql using homebrew
+- name: Install postgresql@15 using homebrew
   community.general.homebrew:
     update_homebrew: yes
-    name: postgresql
+    name: postgresql@15
     state: present
 - name: Start postgresl
-  command: brew services start postgresql
+  command: brew services start postgresql@15
 - name: Check for default database
   command: "psql {{ ansible_user_id }} -c '\\q'"
   register: default_database
