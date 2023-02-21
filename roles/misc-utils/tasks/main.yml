@@ -8,5 +8,3 @@
   tags: 
     - homebrew
   when: ansible_distribution|lower == 'macosx'
-- name: Install ngrok
-  import_tasks: ngrok.yml
