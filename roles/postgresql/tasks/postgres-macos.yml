@@ -3,6 +3,8 @@
     update_homebrew: yes
     name: postgresql@15
     state: present
+- name: Add PATH for postgresql@15 
+  command: echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
 - name: Start postgresl
   command: brew services start postgresql@15
 - name: Check for default database
