@@ -38,7 +38,7 @@
   register: npm_path
 - name: Add node and npm to path
   shell: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
-- name: Add the path to .bashrc 
+- name: Add the path to .zshrc 
   lineinfile:
     dest: ~/.zshrc
     line: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
