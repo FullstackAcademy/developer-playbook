@@ -6,10 +6,11 @@
 # - name: Add PATH for postgresql@15
 #   command: echo 'export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
 - name: Add postgres directory to the PATH
-  lineinfile:
+  blockinfile:
     marker: "### {mark} Add postgresql@15 directory to the PATH"
-    dest: ~/.zshrc
-    line: export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+    path: ~/.zshrc
+    block: |
+      export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 - name: Start postgresl
   command: brew services start postgresql@15
 - name: Check for default database

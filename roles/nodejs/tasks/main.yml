@@ -39,10 +39,11 @@
 # - name: Add node and npm to path
 #   shell: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
 - name: Add the path to .zshrc
-  lineinfile:
+  blockinfile:
     marker: "### {mark} Add Node directory to the PATH"
-    dest: ~/.zshrc
-    line: export PATH="$HOME/.nvm/versions/node:$PATH"
+    path: ~/.zshrc
+    block: |
+      export PATH="$HOME/.nvm/versions/node:$PATH"
 - name: Print Node version
   debug:
     msg: "{{ node_version.stdout }}"
