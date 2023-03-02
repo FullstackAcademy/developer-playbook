@@ -14,7 +14,7 @@
     marker: "### {mark} Set zsh prompt to username@hostname ~ %"
     dest: ~/.zshrc
     block: |
-      PROMPT="%n@%m %1~ %#"
+      PROMPT="%n@%m %1~ %# "
     when: ansible_distribution|lower == 'debian'
 - name: Make sure /usr/local/bin exists and is writeable on macOS by admin users
   become: yes
