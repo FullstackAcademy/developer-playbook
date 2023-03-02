@@ -1,9 +1,9 @@
 ---
 # tasks file for nodejs
 - name: clone nvm into ~/.nvm
-  git: 
+  git:
     repo: https://github.com/nvm-sh/nvm.git
-    dest: ~/.nvm 
+    dest: ~/.nvm
 - name: Add NVM initialization to startup files
   blockinfile:
     marker: "### {mark} INTIALIZE NVM"
@@ -18,9 +18,9 @@
   with_items:
     - "~/.zshrc"
 - name: Install Node {{ wanted_node_version }}
-  command: 
+  command:
     cmd: bash -c '. ~/.nvm/nvm.sh; nvm install {{ wanted_node_version }};'
-    creates: 
+    creates:
       - ~/.nvm/versions/node/*{{ wanted_node_version }}*/bin/node
 - name: Set Node {{ wanted_node_version }} to be the default
   command:
@@ -36,15 +36,16 @@
   command:
     cmd: bash -c '. ~/.nvm/nvm.sh; nvm use --silent default; which npm'
   register: npm_path
-- name: Add node and npm to path
-  shell: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
-- name: Add the path to .zshrc 
+# - name: Add node and npm to path
+#   shell: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
+- name: Add the path to .zshrc
   lineinfile:
+    marker: "### {mark} Add Node directory to the PATH"
     dest: ~/.zshrc
-    line: export PATH="$HOME/.nvm/versions/node/v18.14.0/bin:$PATH"
+    line: export PATH="$HOME/.nvm/versions/node:$PATH"
 - name: Print Node version
-  debug: 
+  debug:
     msg: "{{ node_version.stdout }}"
 - name: Print Node version
-  debug: 
-    msg: "{{ npm_path.stdout }}"    
+  debug:
+    msg: "{{ npm_path.stdout }}"
