@@ -9,6 +9,13 @@
   file:
     path: ~/.zshrc
     state: touch
+- name: Set zsh prompt for Ubuntu users
+  blockinfile:
+    marker: "### {mark} Set zsh prompt to username@hostname ~ %"
+    dest: ~/.zshrc
+    block: |
+      PROMPT="%n"
+    when: ansible_distribution|lower == 'debian'
 - name: Make sure /usr/local/bin exists and is writeable on macOS by admin users
   become: yes
   file:
@@ -18,20 +25,20 @@
     owner: root
     group: admin
   when: ansible_distribution|lower == 'macosx'
-  
+
 - name: Set EDITOR Environment variable
-  blockinfile: 
+  blockinfile:
     marker: "### {mark} SET VSCODE TO BE THE DEFAULT EDITOR"
     dest: ~/.zshrc
     block: |
       export EDITOR="code -w"
-      
+
 - name: Create ~/.local/bin
-  file: 
+  file:
     path: ~/.local/bin
     state: directory
 - name: Add common directories to the PATH
-  blockinfile: 
+  blockinfile:
     marker: "### {mark} Add common directories to the PATH"
     path: ~/.zshrc
     block: |
