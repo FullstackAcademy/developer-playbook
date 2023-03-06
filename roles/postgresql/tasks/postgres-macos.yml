@@ -10,7 +10,7 @@
     marker: "### {mark} Add postgresql@15 directory to the PATH"
     path: ~/.zshrc
     block: |
-      export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+      export PATH="$HOMEBREW_PREFIX/opt/postgresql@15/bin:$PATH"
 - name: Start postgresl
   command: brew services start postgresql@15
 - name: Check for default database
