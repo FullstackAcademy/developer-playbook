@@ -10,7 +10,6 @@
     block: |
       export PATH="$HOMEBREW_PREFIX/opt/postgresql@15/bin:$PATH"
 - name: Source updated .zshrc
-  sudo: no
   shell: source ~/.zshrc
   args:
      executable: /bin/zsh
