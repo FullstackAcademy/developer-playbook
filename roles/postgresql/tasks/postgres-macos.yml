@@ -11,7 +11,9 @@
       export PATH="$HOMEBREW_PREFIX/opt/postgresql@15/bin:$PATH"
 - name: Source updated .zshrc
   sudo: no
-  shell: . ~/.zshrc
+  shell: source ~/.zshrc
+  args:
+     executable: /bin/zsh
 - name: Start postgresl
   command: brew services start postgresql@15
 - name: Check for default database
