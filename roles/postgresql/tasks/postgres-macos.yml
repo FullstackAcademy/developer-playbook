@@ -10,8 +10,8 @@
     block: |
       export PATH="$HOMEBREW_PREFIX/opt/postgresql@15/bin:$PATH"
 - name: Source updated .zshrc
-  become: true
-  become_user: {{ ansible_user_id }}
+  become: yes
+  become_user: "{{ ansible_user_id }}"
   shell: source ~/.zshrc
   args:
      executable: /bin/zsh
