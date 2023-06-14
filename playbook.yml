@@ -15,5 +15,6 @@
     - ssh-key
     - aliases
     - nodejs
-    - postgresql
     - misc-utils
+    - postgresql
+
