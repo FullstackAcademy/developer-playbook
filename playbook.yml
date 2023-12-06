@@ -12,9 +12,9 @@
 
   roles:
     - misc-utils
-    - nodejs
     - ssh-key
     - aliases
     - zsh
+    - nodejs
     - postgresql
 
