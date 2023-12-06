@@ -14,7 +14,7 @@
   become_user: "{{ ansible_user_id }}"
   shell: source ~/.zshrc
   args:
-     executable: /bin/zsh
+    executable: /bin/zsh
 - name: Start postgresl
   command: brew services start postgresql@15
 - name: Check for default database
