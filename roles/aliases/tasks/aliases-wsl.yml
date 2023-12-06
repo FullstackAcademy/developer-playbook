@@ -5,3 +5,10 @@
     block: |
       alias open='explorer.exe'
       alias wsl='wsl.exe'
+
+- name: Set BROWSER Environment variable
+  blockinfile:
+    marker: "### {mark} SET BROWSER TO explorer.exe"
+    dest: ~/.zshrc
+    block: |
+      export BROWSER=explorer.exe

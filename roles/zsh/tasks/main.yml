@@ -34,7 +34,7 @@
 
 - name: Set BROWSER Environment variable
   blockinfile:
-    marker: "### {mark} SET VSCODE TO BE THE DEFAULT EDITOR"
+    marker: "### {mark} SET BROWSER TO explorer.exe"
     dest: ~/.zshrc
     block: |
       export BROWSER=explorer.exe
