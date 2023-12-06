@@ -9,7 +9,7 @@
     marker: "### {mark} INTIALIZE NVM"
     mode: 0644
     path: "{{ item }}"
-    create: yes
+    create: true
     block: |
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

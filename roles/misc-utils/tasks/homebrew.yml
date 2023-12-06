@@ -14,7 +14,7 @@
     - visual-studio-code
     - postico
     - postbird
-  when: 
+  when:
     - item not in brews.stdout_lines
   ignore_errors: yes
 - name: Install various useful homebrew packages
@@ -24,5 +24,5 @@
   with_items:
     - grc
     - pgcli
-  when: 
+  when:
     - item not in brews.stdout_lines

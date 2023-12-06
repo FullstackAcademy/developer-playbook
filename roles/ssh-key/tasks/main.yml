@@ -10,4 +10,4 @@
     type: ed25519
     state: present
     force: no
-  ignore_errors: yes
+  ignore_errors: true

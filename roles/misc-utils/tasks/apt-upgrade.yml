@@ -1,14 +1,14 @@
 - name: apt upgrade
-  become: yes
+  become: true
   apt:
     update_cache: yes
     upgrade: full
 - name: apt install dependencies
-  become: yes
+  become: true
   apt:
     update_cache: yes
     state: present
-    name: 
+    name:
       - zsh
       - acl
       - git

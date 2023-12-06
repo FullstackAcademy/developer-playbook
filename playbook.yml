@@ -1,20 +1,20 @@
 ---
 - name: install
   hosts: localhost
-  gather_facts: yes
+  gather_facts: true
   vars:
     asdf_user: "{{ ansible_user_id }}"
     wanted_node_version: "18"
   connection: local
-  tasks: 
+  tasks:
     - name: Distribution
       debug: msg="{{ ansible_distribution }}"
-        
+
   roles:
-    - zsh
+    - misc-utils
+    - nodejs
     - ssh-key
     - aliases
-    - nodejs
-    - misc-utils
+    - zsh
     - postgresql
 
