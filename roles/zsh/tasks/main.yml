@@ -1,7 +1,7 @@
 ---
 # tasks file for zsh
 - name: change user shell to zsh
-  become: yes
+  become: true
   user:
     name: "{{ ansible_user_id }}"
     shell: /bin/zsh
@@ -16,7 +16,7 @@
     block: |
       PROMPT="%n@%m %1~ %# "
 - name: Make sure /usr/local/bin exists and is writeable on macOS by admin users
-  become: yes
+  become: true
   file:
     path: /usr/local/bin
     state: directory
@@ -31,6 +31,13 @@
     dest: ~/.zshrc
     block: |
       export EDITOR="code -w"
+
+- name: Set BROWSER Environment variable
+  blockinfile:
+    marker: "### {mark} SET VSCODE TO BE THE DEFAULT EDITOR"
+    dest: ~/.zshrc
+    block: |
+      export BROWSER=explorer.exe
 
 - name: Create ~/.local/bin
   file:
