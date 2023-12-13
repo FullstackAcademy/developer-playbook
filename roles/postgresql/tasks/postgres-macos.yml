@@ -15,12 +15,12 @@
   shell: source ~/.zshrc
   args:
     executable: /bin/zsh
-- name: Start postgresl
-  command: brew services start postgresql@15
-- name: Check for default database
-  command: "psql -c '\\q'"
-  register: default_database
-  ignore_errors: true
-- name: Create user's default database
-  command: "createdb {{ ansible_user_id }}"
-  when: default_database.failed == True
+# - name: Start postgresl
+#   command: brew services start postgresql@15
+# - name: Check for default database
+#   command: "psql -c '\\q'"
+#   register: default_database
+#   ignore_errors: true
+# - name: Create user's default database
+#   command: "createdb {{ ansible_user_id }}"
+#   when: default_database.failed == True
