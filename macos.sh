@@ -1,7 +1,6 @@
 #!/bin/sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 UNAME_MACHINE="$(/usr/bin/uname -m)"
-
 if [[ "${UNAME_MACHINE}" == "arm64" ]]
 then
   # On ARM macOS, this script installs to /opt/homebrew only
@@ -13,6 +12,7 @@ fi
 # Next two lines - Run the homebrew "brew" command install
 (echo; echo 'eval "($HOMEBREW_PREFIX/bin/brew shellenv)"') >> $HOME/.zprofile
 eval "($HOMEBREW_PREFIX/bin/brew shellenv)"
+source ~/.zprofile
 brew update
 brew install ansible
 ansible-galaxy collection install community.postgresql community.general
