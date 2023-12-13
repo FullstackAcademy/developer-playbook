@@ -10,7 +10,7 @@ else
   HOMEBREW_PREFIX="/usr/local"
 fi
 # Next two lines - Run the homebrew "brew" command install
-(echo; echo 'eval "($HOMEBREW_PREFIX/bin/brew shellenv)"') >> $HOME/.zprofile
+(echo; echo 'eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"') >> $HOME/.zprofile
 eval "($HOMEBREW_PREFIX/bin/brew shellenv)"
 source ~/.zprofile
 brew update
