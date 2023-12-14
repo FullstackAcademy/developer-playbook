@@ -16,10 +16,13 @@ source ~/.zprofile
 brew update
 brew install ansible
 ansible-galaxy collection install community.postgresql community.general
+echo -e "\033[0;31m Enter your sudo password again when prompted by BECOMES:\033[0m"
 ansible-pull -K -C jeremyTest -U https://github.com/fullstackacademy/developer-playbook.git playbook.yml
 echo "Ansible setup complete, close your Terminal and open a new one..."
 source ~/.zshrc
+source ~/.zprofile
 brew services start postgresql@15
+# brew services restart postgresql@15
 # Create a user through the 'postgres' psql user, with d(createdb) l(login) r(createrole) and s(superuser) permisisons - then create db for the login user
-createuser -U postgres -dlrs $USER
+# createuser -U postgres -dlrs $USER
 createdb $USER
