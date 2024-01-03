@@ -25,7 +25,7 @@
 - name: Start postgresql
   become: true
   become_user: root
-  command: service postgresql restart
+  command: service postgresql start
 - name: Get Postgres Version
   become: true
   become_user: postgres
@@ -75,10 +75,10 @@
     method: trust
     users: all
     address: '::1/128'
-- name: Reload postgresql
+- name: Restart postgresql
   become: true
   become_user: root
-  command: service postgresql reload
+  command: service postgresql restart
 # - name: Reload postgresql
 #   become: true
 #   become_user: root
