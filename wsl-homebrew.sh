@@ -13,6 +13,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo apt-get install -y build-essential
 brew install gcc
 brew install postgresql@15
+brew install gh
 # /home/linuxbrew/.linuxbrew/var/postgresql@15/postgresql.conf
 # /home/linuxbrew/.linuxbrew/var/postgresql@15/pg_hba.conf
 echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@15/bin:$PATH"' >> $HOME/.zshrc
@@ -30,7 +31,5 @@ echo '\nexport PROMPT="%n@%m %1~ %# "' >> $HOME/.zshrc
 echo 'alias open="explorer.exe"' >> $HOME/.zshrc
 echo 'alias wsl="wsl.exe"' >> $HOME/.zshrc
 echo 'export EDITOR="code -w"' >> $HOME/.zshrc
-source $HOME/.zshrc
-/bin/zsh -c "$(nvm install 18)"
+nvm install 18
 echo "\033[0;31m Installation complete! Please open a new terminal window/tab and run the command:\ncreatedb \$USER\nto create a new postgresql database for the logged in user.\033[0m"
-
