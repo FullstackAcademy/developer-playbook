@@ -16,6 +16,7 @@ eval "($HOMEBREW_PREFIX/bin/brew shellenv)"
 source $HOME/.zshrc
 brew update
 brew install ansible
+brew install gh
 ansible-galaxy collection install community.postgresql community.general
 echo -e "\033[0;31m Enter your sudo password again when prompted by BECOMES:\033[0m"
 ansible-pull -K -C jeremyTest -U https://github.com/fullstackacademy/developer-playbook.git playbook.yml
