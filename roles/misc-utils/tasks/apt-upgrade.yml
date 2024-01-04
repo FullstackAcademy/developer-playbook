@@ -19,3 +19,11 @@
       - pgcli
       - htop
       - curl
+- name: apt install GH CLI if Ubuntu >= 22
+  become: true
+  apt:
+    update_cache: true
+    state: present
+    name:
+      - gh
+  when: ansible_facts.distribution_major_version | int >= 22
