@@ -19,7 +19,7 @@
     name: "{{ item }}"
     state: present
   with_items:
-    - insomnia
+    - gh
     - visual-studio-code
     - postico
     - postbird
