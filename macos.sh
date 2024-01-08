@@ -6,13 +6,6 @@ if [ "$(/usr/bin/uname)" != "Darwin" ]; then
   exit
 fi
 #
-# Save terminal commands and output in a txt file.
-echo "\033[0;34m START logging terminal session... \033[0m"
-if ! [ -f $HOME/fsa-machine-setup-log.txt ]; then
-  touch $HOME/fsa-machine-setup-log.txt
-fi
-exec script -a $HOME/fsa-machine-setup-log.txt <<'EOF'
-#
 echo "\033[0;34m START development environment setup. \033[0m"
 #
 echo "\033[0;34m Install Homebrew...\033[0m"
@@ -49,8 +42,3 @@ echo "\033[0;34m Source updated shell configuration...\033[0m"
 source $HOME/.zshrc
 #
 echo "\033[0;34m END development environment setup. \033[0m"
-#
-echo "END logging terminal session"
-echo "\033[0;34m *************************************************************************** \033[0m"
-exit
-EOF
