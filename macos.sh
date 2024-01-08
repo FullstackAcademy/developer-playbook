@@ -9,7 +9,7 @@ fi
 # Save terminal commands and output in a txt file.
 echo "\033[0;34m START logging terminal session... \033[0m"
 if ! [ -f $HOME/fsa-machine-setup-log.txt ]; then
-    touch $HOME/fsa-machine-setup-log.txt  
+  touch $HOME/fsa-machine-setup-log.txt
 fi
 script -a $HOME/fsa-machine-setup-log.txt
 #
@@ -22,13 +22,13 @@ echo "\033[0;34m Install Homebrew...\033[0m"
 echo "\033[0;34m Initialize Homebrew... \033[0m"
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 if [ "${UNAME_MACHINE}" == "arm64" ]; then
-  # On ARM macOS, homebrew installs to /opt/homebrew 
-  echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> $HOME/.zshrc
-  eval (/opt/homebrew/bin/brew shellenv)
+  # On ARM macOS, homebrew installs to /opt/homebrew
+  echo 'eval $(/opt/homebrew/bin/brew shellenv)' >>$HOME/.zshrc
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 elif [ "${UNAME_MACHINE}" == "x86_64" ]; then
-  # On Intel macOS, homebrew installs to /usr/local 
-  echo 'eval $(/usr/local/bin/brew shellenv)' >> $HOME/.zshrc
-  eval (/usr/local/bin/brew shellenv)
+  # On Intel macOS, homebrew installs to /usr/local
+  echo 'eval $(/usr/local/bin/brew shellenv)' >>$HOME/.zshrc
+  eval "$(/usr/local/bin/brew shellenv)"
 else
   echo "Chip architecture not recognized."
   exit
