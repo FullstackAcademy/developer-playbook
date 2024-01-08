@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 # Fail fast if host machine is not macOS
-if [ $(uname) != "Darwin" ]; then
+if [ "$(/usr/bin/uname)" != "Darwin" ]; then
   echo "Operating system not recognized. This script can only be run on macOS."
   exit
 fi
