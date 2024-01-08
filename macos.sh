@@ -11,7 +11,7 @@ echo "\033[0;34m START logging terminal session... \033[0m"
 if ! [ -f $HOME/fsa-machine-setup-log.txt ]; then
   touch $HOME/fsa-machine-setup-log.txt
 fi
-script -a $HOME/fsa-machine-setup-log.txt
+exec script -a $HOME/fsa-machine-setup-log.txt <<'EOF'
 #
 echo "\033[0;34m START development environment setup. \033[0m"
 #
@@ -53,3 +53,4 @@ echo "\033[0;34m END development environment setup. \033[0m"
 echo "END logging terminal session"
 echo "\033[0;34m *************************************************************************** \033[0m"
 exit
+EOF
