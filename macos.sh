@@ -1,4 +1,10 @@
 #!/bin/sh
+echo "\033[0;34m START logging terminal session... \033[0m"
+if ! [ -f $HOME/fsa-machine-setup-log.txt ]; then
+    touch $HOME/fsa-machine-setup-log.txt  
+fi
+script -a $HOME/fsa-machine-setup-log.txt
+
 echo "\033[0;34m START development environment setup. \033[0m"
 
 echo "\033[0;34m Install Homebrew...\033[0m"
@@ -6,12 +12,11 @@ echo "\033[0;34m Install Homebrew...\033[0m"
 
 echo "\033[0;34m Initialize Homebrew... \033[0m"
 UNAME_MACHINE="$(/usr/bin/uname -m)"
-if [[ "${UNAME_MACHINE}" == "arm64" ]]
-then
-  # On ARM macOS, this script installs to /opt/homebrew only
+if [ "${UNAME_MACHINE}" == "arm64" ]; then
+  # On ARM macOS, homebrew installs to ~/opt/homebrew 
   HOMEBREW_PREFIX="/opt/homebrew"
 else
-  # On Intel macOS, this script installs to /usr/local only
+  # On Intel macOS, homebrew installs to ~/usr/local 
   HOMEBREW_PREFIX="/usr/local"
 fi
 # Next two lines - Run the homebrew "brew" command install
@@ -38,3 +43,7 @@ source $HOME/.zshrc
 # createuser -U postgres -dlrs $USER
 # createdb $USER
 echo "\033[0;34m END development environment setup. \033[0m"
+
+echo "END logging terminal session"
+echo "***************************************************************************"
+exit
