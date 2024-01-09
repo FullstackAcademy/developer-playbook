@@ -1,8 +1,14 @@
 #!/bin/sh
 #
-echo "\033[0;34m START development environment setup \033[0m"
+# Initialize text format variables
+TEXT_RED="\033[0;31m"
+TEXT_BLUE="\033[0;34m"
+TEXT_BLUE_BOLD="\033[1;34m"
+TEXT_RESET="\033[0m"
+#
+echo "$TEXT_BLUE_BOLD START development environment setup $TEXT_RESET"
 echo
-echo "\033[0;34m Install Homebrew...\033[0m"
+echo "$TEXT_BLUE Install Homebrew...$TEXT_RESET"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 #
 # Check if Homebrew is installed
@@ -12,7 +18,7 @@ if [ ! -f "$HOMEBREW_PREFIX/bin/brew" ]; then
 fi
 #
 # Set Homebrew enviroment variables
-echo "\033[0;34m Initialize Homebrew... \033[0m"
+echo "$TEXT_BLUE Initialize Homebrew... $TEXT_RESET"
 UNAME_MACHINE="$(/usr/bin/uname -m)"
 HOMEBREW_PREFIX=""
 HOMEBREW_INIT=""
@@ -26,43 +32,42 @@ elif [ "${UNAME_MACHINE}" == "x86_64" ]; then
   HOMEBREW_PREFIX='/usr/local/'
   HOMEBREW_INIT='eval $(/usr/local/bin/brew shellenv)'
 else
-  echo "\033[0;31m Chip architecture not recognized. \033[0m"
+  echo "$TEXT_RED Chip architecture not recognized. $TEXT_RESET"
   exit
 fi
 #
 # Check if .zprofile exists and includes the Homebrew initialization script
 if [[ -f $HOME/.zprofile && $(grep -c "$HOMEBREW_INIT" $HOME/.zprofile) != 0 ]]; then
-  echo "\033[0;34m Homebrew is already initialized. \033[0m"
+  echo "$TEXT_BLUE\n Homebrew was already initialized $TEXT_RESET"
 else
   # if not, add initialization script to .zprofile and run it in the current shell
   echo $HOMEBREW_INIT >>$HOME/.zprofile
   eval $HOMEBREW_INIT
+  echo "\n$TEXT_BLUE Homebrew initialization complete $TEXT_RESET"
 fi
 #
 brew update
 #
-echo "\033[0;34m Install Ansible... \033[0m"
+echo "$TEXT_BLUE Install Ansible... $TEXT_RESET"
 brew install ansible
 ansible-galaxy collection install community.postgresql community.general
 #
 # Check if ansible is installed
 #
 if [ ! -f "$HOMEBREW_PREFIX/bin/ansible" ]; then
-  echo "\033[0;31m Ansible is not installed. \033[0m"
+  echo "$TEXT_RED Ansible is not installed. $TEXT_RESET"
   exit
 fi
 #
-echo "\033[0;34m Run Ansible playbook... \033[0m"
+echo "$TEXT_BLUE Run Ansible playbook... $TEXT_RESET"
 echo
-echo "\033[1;34m Enter your account password again when prompted by BECOMES \033[0m"
-echo "\033[0;34m  If there is no output, your password was accepted and the playbook is running. \033[0m"
-echo "\033[0;34m  Leave this terminal window open until all installations are complete. \033[0m"
+echo "$TEXT_BLUE_BOLD Enter your account password again when prompted by BECOMES $TEXT_RESET"
+echo "$TEXT_BLUE  If there is no output, your password was accepted and the playbook is running. $TEXT_RESET"
+echo "$TEXT_BLUE  Leave this terminal window open until all installations are complete. $TEXT_RESET"
 # *********** NOTE: remove "-C jeremyTest" before finalizing **********
 ansible-pull -K -C jeremyTest -U https://github.com/fullstackacademy/developer-playbook.git playbook.yml
 #
-# echo "\033[0;34m Source updated shell configuration...\033[0m"
+# echo "$TEXT_BLUE Source updated shell configuration...$TEXT_RESET"
 # source $HOME/.zshrc
 #
-echo "\033[0;34m END development environment setup. \033[0m"
-echo "\033[0;34m *********************************************************************************************** \033[0m"
-echo "\033[0;34m END logging. \033[0m"
+echo "$TEXT_BLUE_BOLD END development environment setup. $TEXT_RESET \n"
