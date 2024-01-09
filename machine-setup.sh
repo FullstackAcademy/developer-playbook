@@ -25,4 +25,5 @@ else
     exit
 fi
 
-echo "$TEXT_BLUE END logging \n$TEXT_CYAN*********************************************************************************************** $TEXT_RESET"
+echo "$TEXT_BLUE\n END logging $TEXT_RESET"
+echo "$TEXT_CYAN*********************************************************************************************** $TEXT_RESET"

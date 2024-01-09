@@ -43,7 +43,7 @@ else
   # if not, add initialization script to .zprofile and run it in the current shell
   echo $HOMEBREW_INIT >>$HOME/.zprofile
   eval $HOMEBREW_INIT
-  echo "\n$TEXT_BLUE Homebrew initialization complete $TEXT_RESET"
+  echo "$TEXT_BLUE\n Homebrew initialization complete $TEXT_RESET"
 fi
 #
 brew update
@@ -70,4 +70,4 @@ ansible-pull -K -C jeremyTest -U https://github.com/fullstackacademy/developer-p
 # echo "$TEXT_BLUE Source updated shell configuration...$TEXT_RESET"
 # source $HOME/.zshrc
 #
-echo "$TEXT_BLUE_BOLD END development environment setup. $TEXT_RESET \n"
+echo "$TEXT_BLUE_BOLD END development environment setup. $TEXT_RESET"
