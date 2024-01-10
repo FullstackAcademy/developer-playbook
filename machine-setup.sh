@@ -14,9 +14,9 @@ TEXT_RESET="\033[0m"
 # Fail fast if OS is not a supported
 MACHINE_SETUP_SCRIPT=""
 if [ "$(/usr/bin/uname)" == "Darwin" ]; then
-    MACHINE_SETUP_SCRIPT=macos.sh
+    MACHINE_SETUP_SCRIPT="macos.sh"
 elif [ "$(/usr/bin/uname)" =="Linux" ]; then
-    MACHINE_SETUP_SCRIPT=wsl.sh
+    MACHINE_SETUP_SCRIPT="wsl.sh"
 else
     echo "$TEXT_RED_BOLD Operating system not recognized \n$TEXT_RED This development environment setup script can only be run on macOS or Linux \n For Windows, first install WSL and then run this script in WSL Ubuntu $TEXT_RESET"
     exit
