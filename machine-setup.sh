@@ -23,7 +23,7 @@ else
 fi
 #
 echo "$TEXT_BLUE START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/jeremyTest/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/jeremyTest/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
 #
 echo "$TEXT_BLUE\n END logging $TEXT_RESET"
 echo "$TEXT_CYAN*********************************************************************************************** $TEXT_RESET"
