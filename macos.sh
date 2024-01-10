@@ -45,6 +45,7 @@ fi
 # Set Homebrew enviroment variables
 # Check if .zprofile exists and includes the Homebrew initialization script
 if [[ -f $HOME/.zprofile && $(grep -c "$HOMEBREW_INIT" $HOME/.zprofile) != 0 ]]; then
+  eval $HOMEBREW_INIT
   echo "$TEXT_BLUE  Homebrew is initialized $TEXT_RESET"
 else
   # if not, add initialization script to .zprofile and run it in the current shell
@@ -62,8 +63,7 @@ echo "$TEXT_BLUE Check for Ansible... $TEXT_RESET"
 # Check if ansible is installed
 if [ -f "$HOMEBREW_PREFIX/bin/ansible" ]; then
   echo "$TEXT_BLUE  Ansible is installed $TEXT_RESET"
-  echo "$TEXT_BLUE\n Update Ansible to latest version... $TEXT_RESET"
-  brew upgrade ansible
+
 else
   # If not, install
   echo "$TEXT_BLUE Install Ansible... $TEXT_RESET"
@@ -77,6 +77,9 @@ else
     exit
   fi
 fi
+#
+echo "$TEXT_BLUE\n Update Ansible to latest version... $TEXT_RESET"
+brew upgrade ansible
 #
 echo "$TEXT_BLUE\n Run Ansible playbook... $TEXT_RESET"
 echo "$TEXT_BLUE_BOLD\n Enter your account password when prompted by BECOMES $TEXT_RESET"
