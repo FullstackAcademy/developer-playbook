@@ -12,18 +12,18 @@ TEXT_RESET="\033[0m"
 #
 # Check OS and identify appropriate script
 # Fail fast if OS is not a supported
+MACHINE_SETUP_SCRIPT=""
 if [ "$(/usr/bin/uname)" == "Darwin" ]; then
     MACHINE_SETUP_SCRIPT=macos.sh
-    echo "$TEXT_BLUE START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
-    sh macos.sh 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
 elif [ "$(/usr/bin/uname)" =="Linux" ]; then
     MACHINE_SETUP_SCRIPT=wsl.sh
-    echo "$TEXT_BLUE START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
-    sh wsl.sh 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
 else
     echo "$TEXT_RED_BOLD Operating system not recognized \n$TEXT_RED This development environment setup script can only be run on macOS or Linux \n For Windows, first install WSL and then run this script in WSL Ubuntu $TEXT_RESET"
     exit
 fi
-
+#
+echo "$TEXT_BLUE START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/jeremyTest/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
+#
 echo "$TEXT_BLUE\n END logging $TEXT_RESET"
 echo "$TEXT_CYAN*********************************************************************************************** $TEXT_RESET"
