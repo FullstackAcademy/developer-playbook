@@ -24,15 +24,14 @@ else
 fi
 ## Run setup script for the identified OS with logging
 echo "$TEXT_CYAN START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
-/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/jeremyTest/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
+/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/main/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
 #
 # Return to complete universal setup steps
 echo "$TEXT_BLUE\n Run Ansible playbook... $TEXT_RESET"
 echo "$TEXT_BLUE_BOLD\n Enter your account password when prompted by BECOME $TEXT_RESET"
 echo "$TEXT_BLUE  If there is no output, your password was accepted and the playbook is running. $TEXT_RESET"
 echo "$TEXT_BLUE  Leave this terminal window open until all installations are complete. $TEXT_RESET"
-# *********** NOTE: remove "-C jeremyTest" before finalizing **********
-ansible-pull -K -C jeremyTest -U https://github.com/fullstackacademy/developer-playbook.git playbook.yml
+ansible-pull -K -C main -U https://github.com/fullstackacademy/developer-playbook.git playbook.yml
 #
 echo "$TEXT_BLUE_BOLD END development environment setup. $TEXT_RESET"
 echo "\n Please close your terminal window and open a new one.\n"
