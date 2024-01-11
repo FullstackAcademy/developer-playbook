@@ -6,7 +6,6 @@
 # Initialize text format variables
 TEXT_RED="\033[0;31m"
 TEXT_RED_BOLD="\033[1;31m"
-TEXT_BLUE="\033[0;34m"
 TEXT_CYAN="\033[0;36m"
 TEXT_RESET="\033[0m"
 #
@@ -22,8 +21,7 @@ else
     exit
 fi
 #
-echo "$TEXT_BLUE START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
+echo "$TEXT_CYAN START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/jeremyTest/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
 #
-echo "$TEXT_BLUE\n END logging $TEXT_RESET"
-echo "$TEXT_CYAN*********************************************************************************************** $TEXT_RESET"
+echo "$TEXT_CYAN\n END logging \n*********************************************************************************************** $TEXT_RESET"

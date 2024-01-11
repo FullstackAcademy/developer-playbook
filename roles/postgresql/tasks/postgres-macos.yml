@@ -23,9 +23,9 @@
 - name: Start postgresl
   command: $HOMEBREW_PREFIX/bin/brew services start postgresql@15
 - name: Check for default database
-  command: "psql -c '\\q'"
+  command: "$HOMEBREW_PREFIX/opt/postgresql@15/bin/psql-15 -c '\\q'"
   register: default_database
   ignore_errors: true
 - name: Create user's default database
-  command: "$HOMEBREW_PREFIX/opt/postgresql@15/bin/createdb {{ ansible_user_id }}"
+  command: "$HOMEBREW_PREFIX/opt/postgresql@15/bin/createdb-15 {{ ansible_user_id }}"
   when: default_database.failed == True
