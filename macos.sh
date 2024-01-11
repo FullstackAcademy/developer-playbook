@@ -81,11 +81,3 @@ fi
 echo "$TEXT_BLUE\n Update Ansible to latest version... $TEXT_RESET"
 brew upgrade ansible
 #
-echo "$TEXT_BLUE\n Run Ansible playbook... $TEXT_RESET"
-echo "$TEXT_BLUE_BOLD\n Enter your account password when prompted by BECOME $TEXT_RESET"
-echo "$TEXT_BLUE  If there is no output, your password was accepted and the playbook is running. $TEXT_RESET"
-echo "$TEXT_BLUE  Leave this terminal window open until all installations are complete. $TEXT_RESET"
-# *********** NOTE: remove "-C jeremyTest" before finalizing **********
-ansible-pull -K -C jeremyTest -U https://github.com/fullstackacademy/developer-playbook.git playbook.yml
-#
-echo "$TEXT_BLUE_BOLD END development environment setup. $TEXT_RESET"
