@@ -26,6 +26,9 @@ fi
 echo "$TEXT_CYAN START logging to ~/fsa-machine-setup-log.ansi \n$TEXT_RESET"
 /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/FullstackAcademy/developer-playbook/main/$MACHINE_SETUP_SCRIPT)" 2>&1 | tee -a $HOME/fsa-machine-setup-log.ansi
 #
+# Execute updated zsh config files
+source ~/.zshrc
+source ~/.zprofile
 # Return to complete universal setup steps
 echo "$TEXT_BLUE\n Run Ansible playbook... $TEXT_RESET"
 echo "$TEXT_BLUE_BOLD\n Enter your account password when prompted by BECOME $TEXT_RESET"
