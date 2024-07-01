@@ -19,7 +19,7 @@ brew install gh
 echo 'export PATH="/home/linuxbrew/.linuxbrew/opt/postgresql@15/bin:$PATH"' >> $HOME/.zshrc
 source $HOME/.zshrc
 brew services start postgresql@15
-psql {{ ansible_env.USER }} -c \\q
+# psql {{ ansible_env.USER }} -c \\q
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 echo '\nexport NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
